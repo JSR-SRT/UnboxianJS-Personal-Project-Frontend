@@ -41,7 +41,7 @@ export const CheckoutPage = () => {
         }
       } catch (error) {
         console.error("Failed to load profile:", error);
-        toast.error("Failed to load profile. Using default values.");
+        toast.error("Failed to load profile.");
       }
     };
 
