@@ -9,29 +9,15 @@ const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-  timeout: 30000,
 });
 
 // Interceptor สำหรับจัดการ errors
 api.interceptors.response.use(
-  (response) => {
-    // Log สำหรับ debug (เอาออกใน production)
-    if (import.meta.env.DEV) {
-      console.log(`✅ ${response.config.url}`, response.status);
-    }
-    return response;
-  },
+  (response) => response,
   (error) => {
     if (error.response?.status === 401) {
       console.error("Unauthorized:", error.config.url);
     }
-
-    console.error("❌ API Error:", {
-      url: error.config?.url,
-      status: error.response?.status,
-      message: error.message,
-    });
-
     return Promise.reject(error);
   }
 );
