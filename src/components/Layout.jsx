@@ -31,7 +31,7 @@ const Layout = () => {
       {/* Global Toaster (แจ้งเตือน) */}
       <Toaster
         position="top-right"
-        richColors
+        // richColors
         toastOptions={{
           success: {
             style: {
